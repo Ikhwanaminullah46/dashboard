@@ -35,7 +35,7 @@ st.subheader('Monthly AQI')
 col1, col2 = st.columns(2)
 
 with col1:
-    avg_aqi = viz.AQI.mean()
+    avg_aqi = viz.AQI.mean(numeric_only=True)
     st.metric("Avg. AQI", value= round(avg_aqi))
  
 
@@ -72,7 +72,7 @@ station_AQI = viz[(viz["date"] >= str(start_date)) &
                  (viz["date"] <= str(end_date))]
 
 station_AQI = station_AQI[['date', 'AQI', 'station']]
-station_AQI = station_AQI.groupby(['station'])['station', 'AQI'].mean().reset_index()
+station_AQI = station_AQI.groupby(['station'])['station', 'AQI'].mean(numeric_only=True).reset_index()
 
 st.subheader('Highest Polluted Station')
 
