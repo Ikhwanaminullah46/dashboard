@@ -39,7 +39,7 @@ with col1:
     st.metric("Avg. AQI", value= round(avg_aqi))
  
 
-average_values = monthly_AQI.groupby('month')['AQI'].mean()
+average_values = monthly_AQI.groupby('month')['AQI'].mean(numeric_only=True)
 max_month = average_values.idxmax()
 
 def number_to_month(max_month):
@@ -100,7 +100,7 @@ wind['date'] = pd.to_datetime(wind['date'])
 wind = wind[(wind["date"] >= str(start_date)) & 
                  (wind["date"] <= str(end_date))]
 
-wind = wind.groupby('wd').mean().reset_index()
+wind = wind.groupby('wd').mean(numeric_only=True).reset_index()
 
 def compass_to_degrees(direction):
     compass_directions = ['E', 'ENE', 'NE', 'NNE',
