@@ -6,7 +6,7 @@ import streamlit as st
 
 st.header(':nauseated_face: Dicoding Collection Dashboard :nauseated_face:')
 
-viz = pd.read_csv("viz.csv")
+viz = pd.read_csv("Dashboard/viz.csv")
 viz['date'] = pd.to_datetime(viz['date'])
 
 min_date = viz["date"].min()
@@ -88,12 +88,12 @@ st.pyplot(fig)
 st.subheader('Pollution Source')
 
 wind = pd.concat([
-    pd.read_csv("PM10_AQI.csv"),
-    pd.read_csv("PM2.5_AQI.csv"),
-    pd.read_csv("SO2_AQI.csv"),
-    pd.read_csv("NO2_AQI.csv"),
-    pd.read_csv("CO_AQI.csv"),
-    pd.read_csv("O3_AQI.csv")], axis = 0)
+    pd.read_csv("Dashboard/PM10_AQI.csv"),
+    pd.read_csv("Dashboard/PM2.5_AQI.csv"),
+    pd.read_csv("Dashboard/SO2_AQI.csv"),
+    pd.read_csv("Dashboard/NO2_AQI.csv"),
+    pd.read_csv("Dashboard/CO_AQI.csv"),
+    pd.read_csv("Dashboard/O3_AQI.csv")], axis = 0)
 
 wind['date'] = pd.to_datetime(wind['date'])
 
