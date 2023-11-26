@@ -1,0 +1,6 @@
+libraries :
+pandas
+numpy
+matplotlib.pyplot
+seaborn
+streamlit
