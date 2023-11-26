@@ -28,7 +28,7 @@ monthly_AQI = viz[(viz["date"] >= str(start_date)) &
 
 monthly_AQI['month'] = monthly_AQI.date.dt.month
 monthly_AQI['year'] = monthly_AQI.date.dt.year
-monthly_AQI = monthly_AQI.groupby(['year', 'month']).mean().reset_index()
+monthly_AQI = monthly_AQI.groupby(['year', 'month']).mean(numeric_only=True).reset_index()
 
 st.subheader('Monthly AQI')
 
